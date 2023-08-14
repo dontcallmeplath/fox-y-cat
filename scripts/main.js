@@ -15,3 +15,14 @@ const getDogImg = async () => {
 };
 
 getDogImg();
+
+const get2ndDogImg = async () => {
+  const response = await fetch(
+    `http://shibe.online/api/cats?count=1&urls=true&httpsUrls=false`
+  );
+  const convertedData = await response.json();
+  const secondDogImg = document.querySelector("#secondDog");
+  secondDogImg.src = convertedData[0];
+};
+
+get2ndDogImg();
